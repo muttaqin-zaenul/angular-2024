@@ -9,10 +9,12 @@ export class EmployeeListComponent {
   voteList : number[];
 
     employees = [
-    { name: 'Ali', age: 28, vote: 0 },
-    { name: 'Bob', age: 34, vote: 0 },
-    { name: 'Cha', age: 25, vote: 0 }
+    { name: 'Ali', age: 28, vote: 0, avatar : 'https://randomuser.me/api/portraits'},
+    { name: 'Bob', age: 34, vote: 0, avatar: 'https://randomuser.me/api/portraits'},
+    { name: 'Cha', age: 25, vote: 0, avatar: 'https://randomuser.me/api/portraits'}
   ];
+
+  searchText = "Hello, World!";
 
   constructor() {
     this.voteList = [];
