@@ -1,0 +1,6 @@
+<p>You vote: {{getVotedEmployees()}}</p>
+<div class="employee-list">
+    <app-employee-item [employee]=employees[0] [index]=0 (vote)="onVote($event)"></app-employee-item>
+    <app-employee-item [employee]=employees[1] [index]=1 (vote)="onVote($event)"></app-employee-item>
+    <app-employee-item [employee]=employees[2] [index]=2 (vote)="onVote($event)"></app-employee-item>
+</div>

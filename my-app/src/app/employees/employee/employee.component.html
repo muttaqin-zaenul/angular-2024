@@ -1,0 +1,19 @@
+<h3>{{title}}</h3>
+
+<img src="{{angularlogo}}" alt="Angular Logo">
+<img [src]=angularlogo alt="Angular Logo Property Binding">
+<img bind-src=angularlogo alt="Angular Logo Property Binding - Bind SRC">
+
+<button id="ClickMeBtn" (click)="onClick($event)">Click Me</button>
+<br>
+<button id="ClickMeBtn" on-click="onClick($event)">Click Me</button>
+<br>
+<input type="text" (input)="onInput($event)">
+
+<div>
+    <ul>
+        <li>{{employees[0].name}} ({{employees[0].age}})</li>
+        <li>{{employees[1].name}} ({{employees[1].age}})</li>
+        <li>{{employees[2].name}} ({{employees[2].age}})</li>
+    </ul>
+</div>

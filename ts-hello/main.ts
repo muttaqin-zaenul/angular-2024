@@ -5,3 +5,4 @@ function logging(message: string): void {
 let message_str: string = "Hello, TypeScript!";
 logging(message_str);
 
+ 
