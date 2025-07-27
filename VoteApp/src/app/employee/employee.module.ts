@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeItemComponent } from './employee-item/employee-item.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UtilityModule } from '../utility/utility.module';
 
 
 
@@ -11,7 +13,10 @@ import { EmployeeItemComponent } from './employee-item/employee-item.component';
     EmployeeItemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UtilityModule
   ],
   exports: [
     EmployeeListComponent,

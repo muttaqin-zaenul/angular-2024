@@ -1,6 +1,53 @@
-<p>You vote: {{getVotedEmployees()}}</p>
+<p *appDuplikat="3">Test Duplikat di Emp List</p>
+
+<p *ngIf="getVotedEmployees().length > 0">You vote: {{getVotedEmployees()}}</p>
+
+<div [ngSwitch]="getVotedEmployees().length">
+    <p *ngSwitchCase="0">Please vote 3 employees</p>
+    <p *ngSwitchCase="1">Please vote 2 employees again!</p>
+    <p *ngSwitchCase="2">Please vote 1 employee again!</p>
+</div>
+
+<div>
+    <input  
+    type="text" 
+    placeholder="Search employee"
+    (focus)="onFocus()"
+    [(ngModel)]="searchText"/>
+
+    <input  
+    type="text" 
+    placeholder="Search employee"
+    (focus)="onFocus()"
+    [(ngModel)]="searchText"/>
+
+    <input type="radio" [(ngModel)]="searchText">
+    <input type="checkbox" [(ngModel)]="searchText">
+    <select [(ngModel)]="searchText">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+</div>
+
+<div><p> You are looking for : {{searchText}} </p></div>
+
+<hr>
+<div>
+    <input  
+    type="text" 
+    placeholder="Search employee"
+    (focus)="onFocus()"
+    [formControl]="searchText2"/>
+</div>
+
+<div><p> You are looking too : {{searchText2.value}} </p></div>
+<hr>
+
+<button (click)="addEmp()">Tambah Employee</button>
+<button (click)="ubah()">Ubah Employee ke-1</button>
+
 <div class="employee-list">
-    <app-employee-item [employee]=employees[0] [index]=0 (vote)="onVote($event)"></app-employee-item>
-    <app-employee-item [employee]=employees[1] [index]=1 (vote)="onVote($event)"></app-employee-item>
-    <app-employee-item [employee]=employees[2] [index]=2 (vote)="onVote($event)"></app-employee-item>
+    <app-employee-item *ngFor="let employee of employees; let idx=index; trackBy: trackByFn" 
+    [employee]=employee [index]=idx (vote)="onVote($event)"
+    ></app-employee-item>
 </div>

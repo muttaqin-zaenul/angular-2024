@@ -1,0 +1,78 @@
+<h3>Pipes upper/lower</h3>
+{{ dataString | uppercase }}
+<br>
+{{ dataString | lowercase }}
+
+<h3>Decimal number</h3>
+{{ dataNumber | number }}
+<br>
+{{ dataNumber | number:'3.2-2'}}
+<br>
+{{ dataNumber | number:'5.2-2'}}
+<br>
+{{ dataNumber | number:'5.2-2':'en-US' }}
+
+
+<h3>Date Format</h3>
+
+{{ toDay | date }}
+<br>
+{{ toDay | date:'short'}}
+<br>
+{{ toDay | date:'shortDate'}}
+<br>
+{{ toDay | date:'shortTime'}}
+<br>
+{{ toDay | date:'fullDate'}}
+<br>
+{{ toDay | date:'medium'}}
+<br>
+{{ toDay | date:'mediumDate'}}
+<br>
+{{ toDay | date:'mediumTime'}}
+<br>
+{{ toDay | date:'long'}}
+<br>
+{{ toDay | date:'longDate'}}
+<br>
+{{ toDay | date:'longTime'}}
+<br>
+{{ toDay | date:'full'}}
+<br>
+{{ toDay | date:'fullDate'}}
+<br>
+{{ toDay | date:'fullTime'}}
+<br>
+{{ toDay | date:'yyyy-MM-dd HH:mm:ss Z'}}
+
+
+<h3>Slice Pipe</h3>
+{{ dataString | slice:0:5 | uppercase }}
+<br>
+{{ dataString | slice:5:10 | lowercase }}
+
+
+<h3>Slicing Array</h3>
+{{ dataArray | slice:0:2 }}
+
+<h3>Slicing Array Object</h3>
+
+<p *ngFor="let siswa of kelas | slice:0:3">{{siswa.nama | uppercase }} ({{siswa.kelas}})</p>
+<br>
+<p *ngFor="let siswa of kelas | slice:-2">{{siswa.nama | uppercase }} ({{siswa.kelas}})</p>
+
+
+<h3>Custom Pipe</h3>
+{{ lipsum | summary:20:'...readmore' }}
+<br>
+<br>
+
+
+<input type="text" [(ngModel)] = "searchSiswa">
+<p>Filter siswa : {{searchSiswa}}</p>
+<p *ngFor="let siswa of kelas | filtersiswa:searchSiswa">{{siswa.nama | uppercase }} ({{siswa.kelas}})</p>
+
+<p>Jika lahir tanggal : {{tanggalLahir | date}}, maka : {{tanggalLahir | usia}} </p>
+
+<h3>Custom Pipe Kapital</h3>
+{{ title | kapital }}

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-list',
@@ -14,10 +15,15 @@ export class EmployeeListComponent {
     { name: 'Cha', age: 25, vote: 0, avatar: 'https://randomuser.me/api/portraits'}
   ];
 
-  searchText = "Hello, World!";
+  searchText = "";
+  searchText2 = new FormControl('');
 
   constructor() {
     this.voteList = [];
+  }
+
+  onFocus() {
+    console.log('Input focused');
   }
 
 
@@ -35,5 +41,22 @@ export class EmployeeListComponent {
     // get voted employees
     return this.employees.filter((employee, index) => {
       return this.voteList.indexOf(index) !== -1;}).map((employee, index) => employee.name);
+  }
+
+  addEmp() {
+    this.employees.push({ name: 'New Employee', age: 30, vote: 0, avatar: 'https://randomuser.me/api/portraits' });
+  }
+
+  ubah() {
+    if (this.employees.length > 0) {
+      this.employees[0].name = 'Ali Updated';
+      this.employees[0].age = 35;
+      this.employees[0].vote = 1;
+      this.employees[0].avatar = 'https://randomuser.me/api/portraits'
+    }
+  }
+
+  trackByFn(index: number, employee: any) {
+    return employee.name; // or employee.id if you have an id property
   }
 }
