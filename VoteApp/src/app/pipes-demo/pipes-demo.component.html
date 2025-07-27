@@ -51,11 +51,24 @@
 <br>
 {{ dataString | slice:5:10 | lowercase }}
 
+<h3>Currency Local</h3>
+{{ dataNumber | currency: 'Rp': 'symbol':'1.2-2' }}
+<br>
+{{ dataNumber | currency: 'USD': 'symbol':'1.2-2' }}
+<br>
+{{ dataNumber | currency: 'EUR': 'symbol':'1.2-2' }}
+<br>
+{{ dataNumber | currency: 'GBP': 'symbol':'1.2-2' }}
+<br>
+{{ dataNumber | currency: 'JPY': 'symbol':'1.2-2' }}
+
 
 <h3>Slicing Array</h3>
 {{ dataArray | slice:0:2 }}
 
 <h3>Slicing Array Object</h3>
+
+<p *ngFor="let siswa of kelas | slice:0:3">{{siswa | json }}</p>
 
 <p *ngFor="let siswa of kelas | slice:0:3">{{siswa.nama | uppercase }} ({{siswa.kelas}})</p>
 <br>
@@ -69,6 +82,9 @@
 
 
 <input type="text" [(ngModel)] = "searchSiswa">
+<button (click)="searchSiswa='Jhon'">Jhon</button>
+<button (click)="searchSiswa='Jane'">Jane</button>
+<button (click)="searchSiswa='Doe'">Doe</button>
 <p>Filter siswa : {{searchSiswa}}</p>
 <p *ngFor="let siswa of kelas | filtersiswa:searchSiswa">{{siswa.nama | uppercase }} ({{siswa.kelas}})</p>
 

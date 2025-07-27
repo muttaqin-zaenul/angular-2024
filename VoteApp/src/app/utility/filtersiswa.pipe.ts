@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filtersiswa'
+  name: 'filtersiswa',
+  // pure: false // This pipe is not pure, it will re-evaluate on every change detection cycle
 })
 export class FiltersiswaPipe implements PipeTransform {
 
